@@ -6,8 +6,8 @@ Navigate into the StreetGroupTechTest folder inside this repository.
 Run `composer install` before running the site.
 
 Change the following directories to have write permissions :
-/storage/cache/templates
-/logs
+* /storage/cache/templates
+* /logs
 
 Assuming Linux / MacOS :
 php -S localhost:8080 -t public
