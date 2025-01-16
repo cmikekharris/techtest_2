@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <form method="post" action="/process_file" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+            <input type="file" name="names_csv" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+            <input type="submit" class="form-control">
+        </div>
+    </form>
+{% endblock %}

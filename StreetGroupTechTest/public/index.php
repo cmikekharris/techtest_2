@@ -9,8 +9,6 @@ use App\Application\Settings\SettingsInterface;
 use DI\ContainerBuilder;
 use Slim\Factory\AppFactory;
 use Slim\Factory\ServerRequestCreatorFactory;
-use Slim\Views\Twig;
-use Slim\Views\TwigMiddleware;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -68,17 +66,11 @@ $errorHandler = new HttpErrorHandler($callableResolver, $responseFactory);
 $shutdownHandler = new ShutdownHandler($request, $errorHandler, $displayErrorDetails);
 register_shutdown_function($shutdownHandler);
 
-// Create Twig
-$twig = Twig::create(__DIR__ . '/../templates', ['cache' => false]);
-
 // Add Routing Middleware
 $app->addRoutingMiddleware();
 
 // Add Body Parsing Middleware
 $app->addBodyParsingMiddleware();
-
-// Add Twig-View Middleware
-$app->add(TwigMiddleware::create($app, $twig));
 
 // Add Error Middleware
 $errorMiddleware = $app->addErrorMiddleware($displayErrorDetails, $logError, $logErrorDetails);

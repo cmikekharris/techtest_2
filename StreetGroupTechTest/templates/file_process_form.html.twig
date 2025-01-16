@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <a href="/" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Process Next File</a>
+
+    <h3>Original Data</h3>
+
+    <ul>
+        {% for line in existing_records %}
+            <li>{{ line[0] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Processed Data</h3>
+
+    <div>Number of original rows : {{ number_of_original_rows }}</div>
+    <div>Number of useable records : {{ number_of_new_rows }}</div>
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Initial</th>
+      <th scope="col">Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for line in updated_records %}
+        <tr>
+            <td>{{ line.title }}</td>
+            <td>{{ line.first_name }}</td>
+            <td>{{ line.initial }}</td>
+            <td>{{ line.last_name }}</td>
+        </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}
