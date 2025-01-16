@@ -9,11 +9,11 @@ Change the following directories to have write permissions :
 * /storage/cache/templates
 * /logs
 
-Assuming Linux / MacOS :
-php -S localhost:8080 -t public
+To run the test web server, assuming Linux / MacOS :
+* php -S localhost:8080 -t public
 
 Then in a browser :
-http://localhost:8080/
+* http://localhost:8080/
 
 Tech stack :
 * Slim Framework v4
